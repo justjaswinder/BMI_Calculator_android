@@ -2,6 +2,7 @@ package com.example.bmi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText et_feet,et_inch,et_pound;
     TextView tv_result;
-    Button btn_calc;
+    Button btn_calc,btn_next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 calculate();
+            }
+        });
+
+        btn_next= (Button)findViewById(R.id.btn_next);
+
+
+        btn_next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+    Intent i = new Intent(getApplicationContext(),Main2Activity.class);
+    startActivity(i);
             }
         });
     }
